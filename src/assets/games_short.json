@@ -5,7 +5,7 @@
         {
           "Installation":
             [
-              { "file_name": "install.iso", "type": "iso image" },
+              { "file_name": "install1.iso", "type": "iso image" },
               { "file_name": "archive_unbox.dat", "type": "dat file" }
             ],
           "Resource Dependency":
@@ -21,12 +21,12 @@
         {
           "Installation":
             [
-              { "file_name": "install.iso", "type": "iso image" },
+              { "file_name": "install2.iso", "type": "iso image" },
               { "file_name": "archive_unbox.dat", "type": "dat file" }
             ],
           "Resource Dependency":
               [
-                { "file_name": "profile.sav", "type": "sav file" },
+                { "file_name": "profile2.sav", "type": "sav file" },
                 { "file_name": "snd0.AT3", "type": "AT3 file" }
               ]
         }
@@ -37,12 +37,12 @@
         {
           "Installation":
             [
-              { "file_name": "install.iso", "type": "iso image" },
+              { "file_name": "install3.iso", "type": "iso image" },
               { "file_name": "archive_unbox.dat", "type": "dat file" }
             ],
           "Resource Dependency":
               [
-                { "file_name": "profile.sav", "type": "sav file" },
+                { "file_name": "profile3.sav", "type": "sav file" },
                 { "file_name": "snd0.AT3", "type": "AT3 file" }
               ]
         }

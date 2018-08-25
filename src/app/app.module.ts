@@ -7,6 +7,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TreeviewModule } from 'ngx-treeview';
+import { GameComponent } from './game/game.component';
+import { GameService } from './services/game/game.service';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -24,7 +27,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent
+    HomepageComponent,
+    GameComponent
   ],
   imports: [
     BrowserModule, NgbModule.forRoot(),
@@ -33,9 +37,10 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     HttpClientModule,
-    TreeviewModule.forRoot()
+    TreeviewModule.forRoot(),
+    FormsModule
   ],
-  providers: [],
+  providers: [GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
