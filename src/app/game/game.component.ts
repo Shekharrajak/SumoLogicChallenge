@@ -35,6 +35,7 @@ export class GameComponent implements OnInit {
   ];
   buttonClass = this.buttonClasses[0];
   file: any;
+  files: any[];
   gameTitleIndex: number;
   gameFolder: string;
   gameFolderFileIndex: number;
@@ -62,6 +63,13 @@ export class GameComponent implements OnInit {
   setGameFolder(folder: string) {
     this.gameFolder = folder;
     console.log(this.gameFolder);
+    if (this.gameFolder === 'Installation') {
+      this.file = this.games[this.gameTitleIndex].game_play_resources.installation[this.gameFolderFileIndex];
+      this.files = this.games[this.gameTitleIndex].game_play_resources.installation;
+    } else {
+      this.file = this.games[this.gameTitleIndex].game_play_resources.resource_dependency[this.gameFolderFileIndex];
+      this.files = this.games[this.gameTitleIndex].game_play_resources.resource_dependency;
+    }
   }
 
   setGameFolderFileIndex(fileIndex) {
@@ -69,8 +77,10 @@ export class GameComponent implements OnInit {
     console.log(this.gameFolderFileIndex);
     if (this.gameFolder === 'Installation') {
       this.file = this.games[this.gameTitleIndex].game_play_resources.installation[this.gameFolderFileIndex];
+      this.files = this.games[this.gameTitleIndex].game_play_resources.installation;
     } else {
       this.file = this.games[this.gameTitleIndex].game_play_resources.resource_dependency[this.gameFolderFileIndex];
+      this.files = this.games[this.gameTitleIndex].game_play_resources.resource_dependency;
     }
   }
 }

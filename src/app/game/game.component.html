@@ -115,9 +115,26 @@
         </button>
       </li>
     </ul>
-    <div *ngIf="file != null">
+    <!-- <div *ngIf="files != null">
       {{file.file_name}} -- {{file.type}}
-    </div>
+
+    </div> -->
+    <table class="table table-hover" *ngIf="files != null">
+      <thead>
+        <tr>
+          <th scope="col-4">File Name</th>
+          <th scope="col-4">Type</th>
+          <th scope="col-4">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let f of files; let index=index">
+          <th scope="row">{{index}}</th>
+          <td>{{f.file_name}}</td>
+          <td>{{f.type}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
 </div>
