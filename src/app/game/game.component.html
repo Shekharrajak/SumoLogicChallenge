@@ -143,9 +143,11 @@
       </tbody>
     </table>
 
-    <button  *ngIf="files != null" type="button" class="btn btn-light">
+    <button  *ngIf="files != null" type="button" class="btn btn-light" (click)="addFile()">
       Add file
     </button>
+    <!-- TODO: create another component for the input values file name , type -->
+    <!-- return the output i.e object having file name and type. Then add it into above folder -->
   </div>
 
 </div>
