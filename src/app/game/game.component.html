@@ -26,8 +26,8 @@
   </div>
 </div> -->
 <div class="row">
-  <div class="col">
-    <div class="col-lg-6 col-sm-12">
+  <div class="col-4">
+    <div class="col-lg-12 col-sm-12">
 
       <div id="accordion">
         <div class="card"  *ngFor="let gameEl of games; let gIndex = index">
@@ -101,14 +101,23 @@
   <div class="col">
     <ul class="list-inline">
       <li class="list-inline-item" *ngIf="gameTitleIndex != null">
-        <a class="social-icon text-xs-center" >{{games[gameTitleIndex].title}}</a>
+        <button type="button" class="btn btn-light">
+
+        {{games[gameTitleIndex].title}} &nbsp;
+        </button>
       </li>
       <li class="list-inline-item" *ngIf="gameFolder != null">
-        <a class="social-icon text-xs-center" >{{gameFolder}}</a>
+        <button type="button" class="btn btn-light">
+        <i class="fa fa-angle-right"></i>
+        </button> &nbsp;
+        <button type="button" class="btn btn-light">
+           {{gameFolder}}
+        </button>
       </li>
     </ul>
     <div *ngIf="file != null">
       {{file.file_name}} -- {{file.type}}
     </div>
   </div>
+
 </div>
