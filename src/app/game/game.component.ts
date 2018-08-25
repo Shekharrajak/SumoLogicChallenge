@@ -56,6 +56,8 @@ export class GameComponent implements OnInit {
   }
 
   setGameTitleIndex(gIndex) {
+    this.files = null;
+    this.gameFolder = null;
     this.gameTitleIndex = gIndex;
     console.log(this.gameTitleIndex );
   }
