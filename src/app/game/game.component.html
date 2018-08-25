@@ -33,7 +33,10 @@
         <div class="card"  *ngFor="let gameEl of games; let gIndex = index">
           <div class="card-header" id="heading{{gIndex}}">
             <h5 class="mb-0">
-              <button class="btn btn-link"  data-toggle="collapse" attr.data-target="#collapse{{gIndex}}" aria-expanded="true" attr.aria-controls="collapse{{gIndex}}">
+              <button class="btn btn-link"
+                data-toggle="collapse" attr.data-target="#collapse{{gIndex}}"
+                aria-expanded="true" attr.aria-controls="collapse{{gIndex}}"
+                 (click)="setGameTitleIndex(gIndex)">
                 {{gameEl.title}}
               </button>
             </h5>
@@ -45,8 +48,8 @@
                 <div class="card-header" id="headingIns_{{gIndex}}">
                   <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" attr.data-target="#collapseIns_{{gIndex}}" aria-expanded="true"
-                      attr.aria-controls="collapseIns_{{gIndex}}">
-                      installation
+                      attr.aria-controls="collapseIns_{{gIndex}}" (click)="setGameFolder('Installation')">
+                      Installation
                     </button>
                   </h5>
                 </div>
@@ -54,7 +57,7 @@
                     <div class="card" *ngFor="let gameElIns of gameEl.game_play_resources.installation; let insIndex = index">
 
                       <div id="collapseIns_{{gIndex}}" class="collapse" attr.aria-labelledby="headingIns_{{gIndex}}"
-                        attr.data-parent="#accordion{{gIndex}}">
+                        attr.data-parent="#accordion{{gIndex}}" (click)="setGameFolderFileIndex(insIndex)">
                         <div class="card-body">
                           {{gameElIns.file_name}} - {{gameElIns.type}}
                         </div>
@@ -70,7 +73,9 @@
             <div class="card">
               <div class="card-header" id="headingRes_{{gIndex}}">
                 <h5 class="mb-0">
-                  <button class="btn btn-link" data-toggle="collapse" attr.data-target="#collapseRes_{{gIndex}}" aria-expanded="true" attr.aria-controls="collapseRes_{{gIndex}}">
+                  <button class="btn btn-link" data-toggle="collapse"
+                  attr.data-target="#collapseRes_{{gIndex}}" aria-expanded="true"
+                  attr.aria-controls="collapseRes_{{gIndex}}" (click)="setGameFolder('Resource Dependency')">
                     Resource Dependency
                   </button>
                 </h5>
@@ -79,7 +84,7 @@
               <div class="card" *ngFor="let gameElIns of gameEl.game_play_resources.resource_dependency; let insIndex = index">
         
                 <div id="collapseRes_{{gIndex}}" class="collapse" attr.aria-labelledby="headingRes_{{gIndex}}" attr.data-parent="#accordionRes{{gIndex}}">
-                  <div class="card-body">
+                  <div class="card-body" (click)="setGameFolderFileIndex(insIndex)">
                     {{gameElIns.file_name}} - {{gameElIns.type}}
                   </div>
                 </div>
@@ -94,6 +99,16 @@
     </div>
   </div>
   <div class="col">
-    2nd column
+    <ul class="list-inline">
+      <li class="list-inline-item" *ngIf="gameTitleIndex != null">
+        <a class="social-icon text-xs-center" >{{games[gameTitleIndex].title}}</a>
+      </li>
+      <li class="list-inline-item" *ngIf="gameFolder != null">
+        <a class="social-icon text-xs-center" >{{gameFolder}}</a>
+      </li>
+    </ul>
+    <div *ngIf="file != null">
+      {{file.file_name}} -- {{file.type}}
+    </div>
   </div>
 </div>

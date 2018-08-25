@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from '../services/game/game.service';
 import { TreeviewItem, TreeviewConfig } from 'ngx-treeview';
 import { Game } from '../model/game';
+import { StylingIndex } from '@angular/core/src/render3/styling';
 
 @Component({
   selector: 'app-game',
@@ -33,6 +34,10 @@ export class GameComponent implements OnInit {
     'btn-outline-dark'
   ];
   buttonClass = this.buttonClasses[0];
+  file: any;
+  gameTitleIndex: number;
+  gameFolder: string;
+  gameFolderFileIndex: number;
 
   constructor(
     private service: GameService
@@ -48,4 +53,25 @@ export class GameComponent implements OnInit {
   onFilterChange(value: string) {
     console.log('filter:', value);
   }
+
+  setGameTitleIndex(gIndex) {
+    this.gameTitleIndex = gIndex;
+    console.log(this.gameTitleIndex );
+  }
+
+  setGameFolder(folder: string) {
+    this.gameFolder = folder;
+    console.log(this.gameFolder);
+  }
+
+  setGameFolderFileIndex(fileIndex) {
+    this.gameFolderFileIndex = fileIndex;
+    console.log(this.gameFolderFileIndex);
+    if (this.gameFolder === 'Installation') {
+      this.file = this.games[this.gameTitleIndex].game_play_resources.installation[this.gameFolderFileIndex];
+    } else {
+      this.file = this.games[this.gameTitleIndex].game_play_resources.resource_dependency[this.gameFolderFileIndex];
+    }
+  }
 }
+
