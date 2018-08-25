@@ -122,6 +122,7 @@
     <table class="table table-hover" *ngIf="files != null">
       <thead>
         <tr>
+          <th scope="col-4">Index</th>
           <th scope="col-4">File Name</th>
           <th scope="col-4">Type</th>
           <th scope="col-4">Action</th>
@@ -132,9 +133,19 @@
           <th scope="row">{{index}}</th>
           <td>{{f.file_name}}</td>
           <td>{{f.type}}</td>
+          <td>
+            <button type="button" class="btn btn-light">
+
+            <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
+
+    <button  *ngIf="files != null" type="button" class="btn btn-light">
+      Add file
+    </button>
   </div>
 
 </div>
